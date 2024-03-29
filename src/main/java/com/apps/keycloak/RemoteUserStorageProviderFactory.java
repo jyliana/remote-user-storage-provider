@@ -10,11 +10,12 @@ public class RemoteUserStorageProviderFactory implements UserStorageProviderFact
 
   @Override
   public RemoteUserStorageProvider create(KeycloakSession session, ComponentModel model) {
-    return new RemoteUserStorageProvider(session, model);
+    return new RemoteUserStorageProvider(session, model, new UsersApiLegacyService(session));
   }
 
   @Override
   public String getId() {
     return PROVIDER_NAME;
   }
+
 }
